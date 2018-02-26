@@ -2,16 +2,7 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-	  concurrent:{
-	dev:{
-		tasks:["watch"]
-		
-	},
-	options: {
-		reload:true,
-		logConcurrentOutput: true
-	}
-	},
+	 
 	"browserify":{
 		dist:{
 			files:{
@@ -26,7 +17,7 @@ module.exports = function(grunt) {
 	},
 	watch: {
 	scripts: {
-		files: ['source/*.js','game/*.js'],
+		files: ['react/*.js','route/*.js',"index.js"],
 		tasks: ["browserify","run:server"],
 			options: {
 				//debounceDelay: 250,
@@ -35,16 +26,17 @@ module.exports = function(grunt) {
 			},
 		},
 	},
+	run:{
+		server:{
+		args:["index.js"]
+		}
+	}
     
-  );
+  });
 
-	grunt.loadNpmTasks('grunt-babel');	
-	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-concurrent');
 	grunt.loadNpmTasks('grunt-run');
 	grunt.loadNpmTasks('grunt-browserify');
   // Default task(s).
   grunt.registerTask('default', ["watch"]);
-  
 };

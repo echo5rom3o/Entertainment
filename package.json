@@ -17,5 +17,12 @@
   },
   "engines": {
     "node": "6.9.1"
+  },
+  "devDependencies": {
+    "grunt": "x.x.x",
+    "grunt-browserify": "^5.2.0",
+    "grunt-concurrent": "x.x.x",
+    "grunt-contrib-watch": "x.x.x",
+    "grunt-run": "x.x.x"
   }
 }
