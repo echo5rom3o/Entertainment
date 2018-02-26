@@ -1,0 +1,21 @@
+{
+  "name": "Entertainment",
+  "version": "1.0.0",
+  "description": "Entertainment",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Tommy Dong",
+  "dependencies": {
+    "express": "x.x.x",
+    "express-session": "x.x.x",
+    "cookie-parser": "x.x.x",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "reactify": "^1.1.1"
+  },
+  "engines": {
+    "node": "6.9.1"
+  }
+}
