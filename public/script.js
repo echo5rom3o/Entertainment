@@ -18066,6 +18066,37 @@ var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____C
 	}});
 
 
-ReactDOM.render(React.createElement(Header, null),document.getElementByID("container"))
+var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____Class1.hasOwnProperty(____Class1____Key)){List[____Class1____Key]=____Class1[____Class1____Key];}}var ____SuperProtoOf____Class1=____Class1===null?null:____Class1.prototype;List.prototype=Object.create(____SuperProtoOf____Class1);List.prototype.constructor=List;List.__superConstructor__=____Class1;
+	function List(props){"use strict";
+		//super(props);
+		//this.state={category:props.category};
+	}
+	Object.defineProperty(List.prototype,"render",{writable:true,configurable:true,value:function(){"use strict";
+		var list=[{serie:"test",site:"google.com"}];
+		if(list){
+			list=list.map(function(list){
+				return React.createElement(Item, {series: list.serie, site: list.site})
+			})
+		}
+		return React.createElement("div", {className: "list"}, 
+			React.createElement("h1", null, "Latest Video"), 
+			React.createElement("table", null, 
+			React.createElement("tr", null, 
+				React.createElement("th", null, "Series"), 
+				React.createElement("th", null, "Release"), 
+				React.createElement("th", null, "Group")
+			), 
+				list
+			)
+		);
+	}});
+
+
+function Item(props){
+	return React.createElement("tr", null, 
+		React.createElement("td", null, " ", React.createElement("a", {href: props.site}, "props.series"))
+	);
+}
+ReactDOM.render([React.createElement(Header, null),React.createElement(List, null)],document.getElementById("container"))
 
 },{"react":26,"react-dom":23}]},{},[27]);

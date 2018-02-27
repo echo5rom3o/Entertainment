@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 	"browserify":{
 		dist:{
 			files:{
-				"public/script.js":["react/script.js"]
+				"public/interface/script.js":["react/script.js"]
 			},
 			options:{
 				"transform": [
