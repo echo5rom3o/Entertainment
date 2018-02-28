@@ -1,3 +1,36 @@
 body{
 	margin:0;
 }
+#header{
+	padding:10px;
+	font-size:30px;
+	background:#3d9ea2;
+	color:white;
+	font-family:"Agency FB";
+}
+main{
+	margin:auto;
+	width:90%;
+}
+main .list{
+	width:80%;
+}
+
+table{
+	width:100%;
+	border-collapse:collapse;
+}
+table th{
+	text-align:left;	
+	background:#bed4f1;
+	width:33%;
+}
+table th:nth-child(2){
+	width:10%;
+}
+table tr:nth-child(even){
+	background:#e4f9f5;
+}
+table tr:nth-child(odd){
+	background:#cdfbf2;
+}

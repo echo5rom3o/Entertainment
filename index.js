@@ -10,4 +10,7 @@ app.use("/interface",express.static(path.join(__dirname+"/public/interface")));
 app.get("/",function(req,res){
 	res.sendFile(path.join(__dirname+"/public/index.html"))
 });
+app.get("/series/\*",function(req,res){
+	res.sendFile(path.join(__dirname+"/public/series.html"))
+});
 app.listen(80)
