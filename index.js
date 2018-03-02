@@ -17,7 +17,7 @@ var connect=new Promise((resolve)=>{
 		if(err)
 			console.log("Database could not connect")
 		else{
-			resolve( db)
+			resolve( db);
 		}
 	})
 	
@@ -33,11 +33,11 @@ connect.then((db)=>{
 	});
 	
 	app.post("/newseries",function(req){
-		db.collection("serie").insertOne({series:req.params.serie})
+		db.collection("serie").insertOne({series:req.params.serie});
 	});
 	
 	app.post("/newtranslator",function(){
-		db.collection("translator").insertOne({series:req.params.serie})
+		db.collection("translator").insertOne({series:req.params.serie});
 	});
 })
 
