@@ -11,6 +11,7 @@ body{
 main{
 	margin:auto;
 	width:90%;
+	font-family:Open Sans;
 }
 main .list{
 	width:80%;
@@ -18,19 +19,38 @@ main .list{
 
 table{
 	width:100%;
+	color:#8a8ac7;
 	border-collapse:collapse;
 }
 table th{
+	color:white;
 	text-align:left;	
-	background:#bed4f1;
+	background:#3d9ea2;
 	width:33%;
 }
 table th:nth-child(2){
 	width:10%;
 }
+table tr{
+	font-size:15px;
+}
 table tr:nth-child(even){
-	background:#e4f9f5;
+	background:#e4f9f5a6;
 }
 table tr:nth-child(odd){
-	background:#cdfbf2;
+	background:#93bbb33b;
+}
+table a,table a:visited{
+	text-decoration:none;
+	color:#8a8ac7;
+}
+table a:hover{
+	text-decoration:none;
+	color:#3d3da0;
+}
+main button{
+	color:white;
+	width: 100%;
+    background: #3d9ea2;
+    border: 0;
 }

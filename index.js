@@ -1,16 +1,35 @@
 var express=require("express");
 var session=require("express-session")
 var app=express();
+var mongo=require("mongodb" ).MongoClient;
 const path = require('path');
-
+var setting={
+	db:"mongodb://localhost:27017/test"
+}
 app.use(session({secret:"secret",saveUninitialized:true,resave: true}));
-
 app.use("/css",express.static(path.join(__dirname+"/public/css")) );
 app.use("/interface",express.static(path.join(__dirname+"/public/interface")));
-app.get("/",function(req,res){
-	res.sendFile(path.join(__dirname+"/public/index.html"))
-});
-app.get("/series/\*",function(req,res){
-	res.sendFile(path.join(__dirname+"/public/series.html"))
-});
+
+app.set("view engine","ejs");
+var connect=new Promise((resolve)=>{
+	
+	mongo.connect(setting.db,function(err,db){
+		if(err)
+			console.log("Database could not connect")
+		else{
+			resolve( db)
+		}
+	})
+})
+
+connect.then((db)=>{
+	app.get("/",function(req,res){
+		res.render("index",{script:"script",loadList:[]});
+	});
+
+	app.get("/series/\*",function(req,res){
+		res.render("index",{script:"serie"});
+	});
+})
+
 app.listen(80)
