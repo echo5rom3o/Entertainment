@@ -4,7 +4,7 @@ var app=express();
 var mongo=require("mongodb" ).MongoClient;
 const path = require('path');
 var setting={
-	db:"mongodb://localhost:27017/test"
+	db:"mongodb://localhost:27017/Entertainment"
 }
 app.use(session({secret:"secret",saveUninitialized:true,resave: true}));
 app.use("/css",express.static(path.join(__dirname+"/public/css")) );
@@ -20,6 +20,7 @@ var connect=new Promise((resolve)=>{
 			resolve( db)
 		}
 	})
+	
 })
 
 connect.then((db)=>{
@@ -29,6 +30,14 @@ connect.then((db)=>{
 
 	app.get("/series/\*",function(req,res){
 		res.render("index",{script:"serie"});
+	});
+	
+	app.post("/newseries",function(req){
+		db.collection("serie").insertOne({series:req.params.serie})
+	});
+	
+	app.post("/newtranslator",function(){
+		db.collection("translator").insertOne({series:req.params.serie})
 	});
 })
 
