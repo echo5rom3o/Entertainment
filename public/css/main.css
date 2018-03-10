@@ -7,6 +7,7 @@ body{
 	background:#3d9ea2;
 	color:white;
 	font-family:"Agency FB";
+	margin:0 0 10px 0;
 }
 main{
 	margin:auto;
@@ -15,8 +16,27 @@ main{
 }
 main .list{
 	width:80%;
+	float:left;
 }
-
+main h3{
+	margin:0;
+}
+main .filter{
+	padding:0 0 5px 0;
+}
+.filter select{
+	border-radius:5px;
+	outline:none;
+}
+nav{
+	float:left;
+}
+nav a{
+	text-decoration:none;
+}
+nav li{
+	list-style-type:none;
+}
 table{
 	width:100%;
 	color:#8a8ac7;
@@ -40,17 +60,60 @@ table tr:nth-child(even){
 table tr:nth-child(odd){
 	background:#93bbb33b;
 }
-table a,table a:visited{
+a,a:visited{
 	text-decoration:none;
 	color:#8a8ac7;
 }
-table a:hover{
+a:hover{
 	text-decoration:none;
 	color:#3d3da0;
+}
+nav{
+	display:inline-block;
 }
 main button{
 	color:white;
 	width: 100%;
     background: #3d9ea2;
     border: 0;
+}
+form{
+	margin:auto;
+	width:300px;
+	padding:10px;
+	font-size:13px;
+}
+form label{
+	display:block;
+	padding:5px;
+	color:#564d4d;
+}
+form input,form select{
+	width:300px;
+	height:30px;
+	margin:5px;
+	color:#564d4d;
+	padding:3px;
+	border-radius:10px;
+	background:white;
+	border:1px solid #e4d6d6;
+	outline:none;
+	box-sizing:border-box;
+}
+form input.warning{
+	border:1px solid #e25858;
+}
+form img{
+	float:left;
+}
+form span{
+	text-align:center;
+	display:block;
+	color:#a59898;
+	float:left;
+	width:150px;
+	padding:10px;
+}
+form span a,form span a:visited{
+	color:#a59898;
 }

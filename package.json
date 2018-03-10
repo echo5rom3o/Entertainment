@@ -8,6 +8,7 @@
   },
   "author": "Tommy Dong",
   "dependencies": {
+    "body-parser": "^1.18.2",
     "cookie-parser": "x.x.x",
     "ejs": "^2.5.7",
     "express": "x.x.x",
@@ -15,7 +16,8 @@
     "mongodb": "^3.0.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "reactify": "^1.1.1"
+    "reactify": "^1.1.1",
+    "safe-browse-url-lookup": "0.0.4"
   },
   "engines": {
     "node": "6.9.1"
