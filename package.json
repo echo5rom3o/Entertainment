@@ -17,7 +17,8 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "reactify": "^1.1.1",
-    "safe-browse-url-lookup": "0.0.4"
+    "safe-browse-url-lookup": "0.0.4",
+    "socket.io": "^2.0.4"
   },
   "engines": {
     "node": "6.9.1"

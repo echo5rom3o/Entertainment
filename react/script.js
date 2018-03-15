@@ -1,6 +1,6 @@
 var React=require("react")
 var ReactDOM= require("react-dom")
-
+var realtime=io.connect("localhost")
 class Header extends React.Component{
 	render(){
 		return <div id="header">Entertain Meh</div>
@@ -12,35 +12,70 @@ class List extends React.Component{
 		super(props);
 		this.state={category:props.category,filters:{},list:props.list};
 		this.load=this.load.bind(this)
+		this.filter=this.filter.bind(this)
+		this.setCategory=this.setCategory.bind(this)
+		this.setLimit=this.setLimit.bind(this)
 	}
 	load(){
-		var list=this.state.list.slice()
-		list.push({serie:"test",site:"http://google.com",release:"9",group:"translatorbob"})
-		this.setState({list:list});
+		var list=this.state.list.slice();
+		var filter=Object.assign({},this.state.filter);
+		filter.limit=list.length+10;
+		realtime.emit("filter",Object.assign({start:list.length},filter),(latest)=>{
+			if(latest.length){
+				list.push(latest)
+				this.setState({filter:filter,list:list});
+			}
+		})
+	}
+	setCategory(event){
+		var filter=Object.assign({},this.state.filter);
+		filter.limit=this.state.list.length
+		if(event.target.value=="none")
+			filter.category={};
+		else
+			filter.category={category:event.target.value};
+		
+		realtime.emit("filter",filter,(latest)=>{
+			this.setState({filter:filter,list:latest});
+		})
+	}	
+	setLimit(event){
+		var filter=Object.assign({},this.state.filter);
+		filter.limit=parseInt(event.target.value);
+		realtime.emit("filter",filter,(latest)=>{
+			if(latest.length){
+				this.setState({filter:filter,list:latest});
+			}
+		})
+	}
+	filter(){
+		this.setState({show:!this.state.show})
 	}
 	render(){
 		var list=this.state.list
 		if(list){
 			list=list.map((list)=>{
 				var url=list["_id"]
-				console.log(list["_id"],list._id)
-				return <Item series={list.serie} url={url} group={list.group} release={list.release} key={list.serie +list.release} site={list.site} />
+				return <Item series={list.serie} url={url} group={list.group} release={list.release} key={url} site={list.site} />
 			})
 		}
+		var filter=!this.state.show?{display:"none"}:{};
 		return <div>
-		
-			<div className="filter">
-			Category 
-			<select>
-				<option>None</option>
-				<option>Translated Novel</option>
-				<option>Novel</option>
-				<option>Video</option>
-				<option>Other</option>
+			<button className="filters" onClick={this.filter}>Filters</button>
+			<div className="filter" style={filter }>
+			<label>Category</label> 
+			<select onChange={this.setCategory}>
+				<option value="none">Translated Novel</option>
+				<option value="translated">Translated Novel</option>
+				<option value="story">Story</option>
+				<option value="video">Video</option>
+				<option value="game">Game</option>
+				<option value="news">News</option>
+				<option value="other">Other</option>
 			</select>
-			Show 
-			<select>
-				<option>30</option>
+			<label>Show</label>
+			<select onChange={this.setLimit}>
+				<option selected>10</option>
 				<option>50</option>
 				<option>100</option>
 			</select>

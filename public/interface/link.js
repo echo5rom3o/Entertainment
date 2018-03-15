@@ -18060,19 +18060,20 @@ if (process.env.NODE_ENV === 'production') {
 var React=require("react")
 var ReactDOM= require("react-dom")
 
-var ____Class3=React.Component;for(var ____Class3____Key in ____Class3){if(____Class3.hasOwnProperty(____Class3____Key)){Header[____Class3____Key]=____Class3[____Class3____Key];}}var ____SuperProtoOf____Class3=____Class3===null?null:____Class3.prototype;Header.prototype=Object.create(____SuperProtoOf____Class3);Header.prototype.constructor=Header;Header.__superConstructor__=____Class3;function Header(){"use strict";if(____Class3!==null){____Class3.apply(this,arguments);}}
+var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____Class0.hasOwnProperty(____Class0____Key)){Header[____Class0____Key]=____Class0[____Class0____Key];}}var ____SuperProtoOf____Class0=____Class0===null?null:____Class0.prototype;Header.prototype=Object.create(____SuperProtoOf____Class0);Header.prototype.constructor=Header;Header.__superConstructor__=____Class0;function Header(){"use strict";if(____Class0!==null){____Class0.apply(this,arguments);}}
 	Object.defineProperty(Header.prototype,"render",{writable:true,configurable:true,value:function(){"use strict";
 		return React.createElement("div", {id: "header"}, "Entertain Meh")
 	}});
 
 
-var ____Class4=React.Component;for(var ____Class4____Key in ____Class4){if(____Class4.hasOwnProperty(____Class4____Key)){Link[____Class4____Key]=____Class4[____Class4____Key];}}var ____SuperProtoOf____Class4=____Class4===null?null:____Class4.prototype;Link.prototype=Object.create(____SuperProtoOf____Class4);Link.prototype.constructor=Link;Link.__superConstructor__=____Class4;
+var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____Class1.hasOwnProperty(____Class1____Key)){Link[____Class1____Key]=____Class1[____Class1____Key];}}var ____SuperProtoOf____Class1=____Class1===null?null:____Class1.prototype;Link.prototype=Object.create(____SuperProtoOf____Class1);Link.prototype.constructor=Link;Link.__superConstructor__=____Class1;
 	function Link(){"use strict";
 		this.url=this.url.bind(this)
 		this.onset=this.onset.bind(this)
 		this.state={warning:"",url:true}
 	}
 	Object.defineProperty(Link.prototype,"url",{writable:true,configurable:true,value:function(event){"use strict";
+		console.log(event.target.value)
 		if(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/.test(event.target.value)){
 			this.setState({url:event.target.value});
 		}
@@ -18089,6 +18090,7 @@ var ____Class4=React.Component;for(var ____Class4____Key in ____Class4){if(____C
 	Object.defineProperty(Link.prototype,"render",{writable:true,configurable:true,value:function(){"use strict";
 		if(data.link=="success")
 			return React.createElement("form", null, "Successfully added link!")
+		var urlwarning=!this.state.url ? "warning":""
 		return React.createElement("form", {action: "link", method: "post", onSubmit: this.onset}, 
 			React.createElement("label", null, "Type:"), 
 			React.createElement("select", {name: "type"}, 
@@ -18099,7 +18101,7 @@ var ____Class4=React.Component;for(var ____Class4____Key in ____Class4){if(____C
 				React.createElement("option", {value: "news"}, "News"), 
 				React.createElement("option", {value: "other"}, "Other")
 			), React.createElement("br", null), 
-			React.createElement("label", null, "URL:"), React.createElement("input", {placeholder: "http://example.com", className: !this.state.url && "warning", onChange: this.url, name: "site", type: "text"}), React.createElement("br", null), 
+			React.createElement("label", null, "URL:"), React.createElement("input", {placeholder: "http://example.com", className: urlwarning, onChange: this.url, name: "site", type: "text"}), React.createElement("br", null), 
 			React.createElement("label", null, "Series:"), 
 			React.createElement("select", {name: "serie"}, 
 				React.createElement("option", {value: "none"}, "None")

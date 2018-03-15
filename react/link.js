@@ -14,6 +14,7 @@ class Link extends React.Component{
 		this.state={warning:"",url:true}
 	}
 	url(event){
+		console.log(event.target.value)
 		if(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/.test(event.target.value)){
 			this.setState({url:event.target.value});
 		}
@@ -30,6 +31,7 @@ class Link extends React.Component{
 	render(){
 		if(data.link=="success")
 			return <form>Successfully added link!</form>
+		var urlwarning=!this.state.url ? "warning":""
 		return <form action="link" method="post" onSubmit={this.onset}>
 			<label>Type:</label>
 			<select name="type">
@@ -40,7 +42,7 @@ class Link extends React.Component{
 				<option value="news">News</option>
 				<option value="other">Other</option>
 			</select><br/>
-			<label>URL:</label><input placeholder="http://example.com" className={!this.state.url && "warning"} onChange={this.url} name="site" type="text"></input><br/>
+			<label>URL:</label><input placeholder="http://example.com" className={urlwarning} onChange={this.url} name="site" type="text"></input><br/>
 			<label>Series:</label>
 			<select name="serie">
 				<option value="none">None</option>

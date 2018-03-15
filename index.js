@@ -4,8 +4,11 @@ var bodyParser=require("body-parser")
 var app=express();
 var mongo=require("mongodb" ).MongoClient;
 const path = require('path');
+var mongodirect=require("mongodb" )
 var setting=require("./setting.json")
 const safelookup=require("safe-browse-url-lookup")({apiKey:setting.safe});
+var server= require("http").Server(app)
+var io=require("socket.io")(server)
 
 app.use(session({secret:"secret",saveUninitialized:true,resave: true}));
 app.use("/css",express.static(path.join(__dirname+"/public/css")) );
@@ -35,23 +38,13 @@ connect.then((db)=>{
 		var popularlist;
 		var suggestedlist;
 		Promise.all([
-		db.collection("links").find().sort({_id:-1}).limit(30).toArray().then((list)=>{
-			latestlist=list;
-			console.log(list)
-		}),
-		
-		db.collection("links").find().sort({_id:-1}).limit(30).toArray().then((list)=>{
-			popularlist=list;
-		}),
-		
-		db.collection("links").find().sort({_id:-1}).limit(30).toArray().then((list)=>{
-			suggestedlist=list;
-		})
+			getLinks().then((value)=>{latestlist=value}),
+			getLinks({order:{popular:1}}).then((value)=>{popularlist=value}),
+			getLinks().then((value)=>{suggestedlist=value})
 		]).then(()=>{
 			res.render("index",{script:"script",data:{latestlist:latestlist,suggestedlist:suggestedlist,popularlist:popularlist}});
 		})
 	});
-	
 	
 	//Create a page
 	app.get("/page/\*",function(req,res){
@@ -85,7 +78,7 @@ connect.then((db)=>{
 						res.render("index",{script:"link",data:{link:"Unable to add. Url may have malicious content. Scanned with Google Safe."}});
 					}
 					else{
-						db.collection("links").insertOne({serie:serie,category:type,site:site,release:release,group:group,release:release,popular:0});
+						db.collection("links").insertOne({serie:serie,category:type,site:site,release:release||"1",group:group,release:release,popular:0});
 						res.render("index",{script:"link",data:{link:"success"}});
 					}
 				})
@@ -102,10 +95,27 @@ connect.then((db)=>{
 	
 	app.get("/linkredirect/\*",function(req,res){
 		if(typeof req.query.url == "string"&&req.query.url.match(/[a-z 0-9]/)){
-			
-			res.redirect("http://"+db.collection ("links").findOneAndUpdate({_id:req.query.url},{$inc:{popular:1}}))
+			db.collection("links").findOneAndUpdate({"_id":mongodirect.ObjectID(req.query.url)},{$inc:{popular:1}}).then((db)=>{
+				res.redirect(db.value.site)
+			})
 		}
+	})
+	
+	function getLinks(opt){
+		opt=opt||{}
+		return new Promise((resolve)=>{db.collection("links").find(opt.category||{}).sort(opt.order||{_id:-1}).limit(opt.limit||30).toArray().then((list)=>{
+			if(list)
+			resolve(list.slice(opt.start||0))
+		})
+		})
+	}
+	
+	io.on("connect",(socket)=>{
+		socket.on("filter",(options,callback)=>{
+			getLinks(options).then(callback)
+		})
 	})
 })
 
-app.listen(80)
+
+server.listen(80)

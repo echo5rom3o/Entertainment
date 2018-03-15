@@ -21,9 +21,11 @@ main .list{
 main h3{
 	margin:0;
 }
+
 main .filter{
 	padding:0 0 5px 0;
 }
+
 .filter select{
 	border-radius:5px;
 	outline:none;
@@ -47,6 +49,7 @@ table th{
 	text-align:left;	
 	background:#3d9ea2;
 	width:33%;
+	font-weight:normal;
 }
 table th:nth-child(2){
 	width:10%;
@@ -70,12 +73,17 @@ a:hover{
 }
 nav{
 	display:inline-block;
+	font-size:15px;
 }
-main button{
+.list button{
 	color:white;
 	width: 100%;
-    background: #3d9ea2;
+    background: #53b1b5;
+	font-size:15px;
+	padding:3px;
+	box-sizing:border-box;
     border: 0;
+	outline:none;
 }
 form{
 	margin:auto;
