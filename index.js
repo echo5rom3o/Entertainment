@@ -78,7 +78,7 @@ connect.then((db)=>{
 						res.render("index",{script:"link",data:{link:"Unable to add. Url may have malicious content. Scanned with Google Safe."}});
 					}
 					else{
-						db.collection("links").insertOne({serie:serie,category:type,site:site,release:release||"1",group:group,release:release,popular:0});
+						db.collection("links").insertOne({serie:serie,category:type,site:site,release:release||"1",group:group,popular:0});
 						res.render("index",{script:"link",data:{link:"success"}});
 					}
 				})

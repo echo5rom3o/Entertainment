@@ -9,6 +9,9 @@ body{
 	font-family:"Agency FB";
 	margin:0 0 10px 0;
 }
+.filters:hover{
+	background:#68b6b9;
+}
 main{
 	margin:auto;
 	width:90%;

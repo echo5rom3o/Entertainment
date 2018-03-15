@@ -65,7 +65,7 @@ class List extends React.Component{
 			<div className="filter" style={filter }>
 			<label>Category</label> 
 			<select onChange={this.setCategory}>
-				<option value="none">Translated Novel</option>
+				<option value="none">None</option>
 				<option value="translated">Translated Novel</option>
 				<option value="story">Story</option>
 				<option value="video">Video</option>
@@ -75,7 +75,7 @@ class List extends React.Component{
 			</select>
 			<label>Show</label>
 			<select onChange={this.setLimit}>
-				<option selected>10</option>
+				<option selected>30</option>
 				<option>50</option>
 				<option>100</option>
 			</select>

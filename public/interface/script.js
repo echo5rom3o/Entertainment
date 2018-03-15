@@ -18060,15 +18060,15 @@ if (process.env.NODE_ENV === 'production') {
 var React=require("react")
 var ReactDOM= require("react-dom")
 var realtime=io.connect("localhost")
-var ____Class2=React.Component;for(var ____Class2____Key in ____Class2){if(____Class2.hasOwnProperty(____Class2____Key)){Header[____Class2____Key]=____Class2[____Class2____Key];}}var ____SuperProtoOf____Class2=____Class2===null?null:____Class2.prototype;Header.prototype=Object.create(____SuperProtoOf____Class2);Header.prototype.constructor=Header;Header.__superConstructor__=____Class2;function Header(){"use strict";if(____Class2!==null){____Class2.apply(this,arguments);}}
+var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____Class0.hasOwnProperty(____Class0____Key)){Header[____Class0____Key]=____Class0[____Class0____Key];}}var ____SuperProtoOf____Class0=____Class0===null?null:____Class0.prototype;Header.prototype=Object.create(____SuperProtoOf____Class0);Header.prototype.constructor=Header;Header.__superConstructor__=____Class0;function Header(){"use strict";if(____Class0!==null){____Class0.apply(this,arguments);}}
 	Object.defineProperty(Header.prototype,"render",{writable:true,configurable:true,value:function(){"use strict";
 		return React.createElement("div", {id: "header"}, "Entertain Meh")
 	}});
 
 
-var ____Class3=React.Component;for(var ____Class3____Key in ____Class3){if(____Class3.hasOwnProperty(____Class3____Key)){List[____Class3____Key]=____Class3[____Class3____Key];}}var ____SuperProtoOf____Class3=____Class3===null?null:____Class3.prototype;List.prototype=Object.create(____SuperProtoOf____Class3);List.prototype.constructor=List;List.__superConstructor__=____Class3;
+var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____Class1.hasOwnProperty(____Class1____Key)){List[____Class1____Key]=____Class1[____Class1____Key];}}var ____SuperProtoOf____Class1=____Class1===null?null:____Class1.prototype;List.prototype=Object.create(____SuperProtoOf____Class1);List.prototype.constructor=List;List.__superConstructor__=____Class1;
 	function List(props){"use strict";
-		____Class3.call(this,props);
+		____Class1.call(this,props);
 		this.state={category:props.category,filters:{},list:props.list};
 		this.load=this.load.bind(this)
 		this.filter=this.filter.bind(this)
@@ -18124,7 +18124,7 @@ var ____Class3=React.Component;for(var ____Class3____Key in ____Class3){if(____C
 			React.createElement("div", {className: "filter", style: filter }, 
 			React.createElement("label", null, "Category"), 
 			React.createElement("select", {onChange: this.setCategory}, 
-				React.createElement("option", {value: "none"}, "Translated Novel"), 
+				React.createElement("option", {value: "none"}, "None"), 
 				React.createElement("option", {value: "translated"}, "Translated Novel"), 
 				React.createElement("option", {value: "story"}, "Story"), 
 				React.createElement("option", {value: "video"}, "Video"), 
@@ -18134,7 +18134,7 @@ var ____Class3=React.Component;for(var ____Class3____Key in ____Class3){if(____C
 			), 
 			React.createElement("label", null, "Show"), 
 			React.createElement("select", {onChange: this.setLimit}, 
-				React.createElement("option", {selected: true}, "10"), 
+				React.createElement("option", {selected: true}, "30"), 
 				React.createElement("option", null, "50"), 
 				React.createElement("option", null, "100")
 			)
@@ -18153,7 +18153,7 @@ var ____Class3=React.Component;for(var ____Class3____Key in ____Class3){if(____C
 		);
 	}});
 
-var ____Class4=React.Component;for(var ____Class4____Key in ____Class4){if(____Class4.hasOwnProperty(____Class4____Key)){Nav[____Class4____Key]=____Class4[____Class4____Key];}}var ____SuperProtoOf____Class4=____Class4===null?null:____Class4.prototype;Nav.prototype=Object.create(____SuperProtoOf____Class4);Nav.prototype.constructor=Nav;Nav.__superConstructor__=____Class4;function Nav(){"use strict";if(____Class4!==null){____Class4.apply(this,arguments);}}
+var ____Class2=React.Component;for(var ____Class2____Key in ____Class2){if(____Class2.hasOwnProperty(____Class2____Key)){Nav[____Class2____Key]=____Class2[____Class2____Key];}}var ____SuperProtoOf____Class2=____Class2===null?null:____Class2.prototype;Nav.prototype=Object.create(____SuperProtoOf____Class2);Nav.prototype.constructor=Nav;Nav.__superConstructor__=____Class2;function Nav(){"use strict";if(____Class2!==null){____Class2.apply(this,arguments);}}
 	Object.defineProperty(Nav.prototype,"render",{writable:true,configurable:true,value:function(){"use strict";
 		return React.createElement("nav", null, 
 			React.createElement("ul", null, 
