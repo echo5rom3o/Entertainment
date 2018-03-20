@@ -18060,13 +18060,26 @@ if (process.env.NODE_ENV === 'production') {
 var React=require("react")
 var ReactDOM= require("react-dom")
 
-var ____Class3=React.Component;for(var ____Class3____Key in ____Class3){if(____Class3.hasOwnProperty(____Class3____Key)){Header[____Class3____Key]=____Class3[____Class3____Key];}}var ____SuperProtoOf____Class3=____Class3===null?null:____Class3.prototype;Header.prototype=Object.create(____SuperProtoOf____Class3);Header.prototype.constructor=Header;Header.__superConstructor__=____Class3;function Header(){"use strict";if(____Class3!==null){____Class3.apply(this,arguments);}}
-	Object.defineProperty(Header.prototype,"render",{writable:true,configurable:true,value:function(){"use strict";
-		return React.createElement("div", {id: "header"}, "Entertain Meh")
+var ____Class3=React.Component;for(var ____Class3____Key in ____Class3){if(____Class3.hasOwnProperty(____Class3____Key)){Nav[____Class3____Key]=____Class3[____Class3____Key];}}var ____SuperProtoOf____Class3=____Class3===null?null:____Class3.prototype;Nav.prototype=Object.create(____SuperProtoOf____Class3);Nav.prototype.constructor=Nav;Nav.__superConstructor__=____Class3;function Nav(){"use strict";if(____Class3!==null){____Class3.apply(this,arguments);}}
+	Object.defineProperty(Nav.prototype,"render",{writable:true,configurable:true,value:function(){"use strict";
+		return React.createElement("nav", {style: {"margin":"0 0 0 30%"}}, 
+			React.createElement("ul", null, 
+			React.createElement("li", null, React.createElement("a", {href: ""}, "Home")), 
+			React.createElement("li", null, React.createElement("a", {href: "link"}, "Add a link")), 
+			React.createElement("li", null, React.createElement("a", {href: ""}, "Register")), 
+			React.createElement("li", null, React.createElement("a", {href: ""}, "Login"))
+			)
+		)
 	}});
 
 
-var ____Class4=React.Component;for(var ____Class4____Key in ____Class4){if(____Class4.hasOwnProperty(____Class4____Key)){Link[____Class4____Key]=____Class4[____Class4____Key];}}var ____SuperProtoOf____Class4=____Class4===null?null:____Class4.prototype;Link.prototype=Object.create(____SuperProtoOf____Class4);Link.prototype.constructor=Link;Link.__superConstructor__=____Class4;
+var ____Class4=React.Component;for(var ____Class4____Key in ____Class4){if(____Class4.hasOwnProperty(____Class4____Key)){Header[____Class4____Key]=____Class4[____Class4____Key];}}var ____SuperProtoOf____Class4=____Class4===null?null:____Class4.prototype;Header.prototype=Object.create(____SuperProtoOf____Class4);Header.prototype.constructor=Header;Header.__superConstructor__=____Class4;function Header(){"use strict";if(____Class4!==null){____Class4.apply(this,arguments);}}
+	Object.defineProperty(Header.prototype,"render",{writable:true,configurable:true,value:function(){"use strict";
+		return React.createElement("div", {id: "header"}, "Entertain Meh", React.createElement(Nav, null))
+	}});
+
+
+var ____Class5=React.Component;for(var ____Class5____Key in ____Class5){if(____Class5.hasOwnProperty(____Class5____Key)){Link[____Class5____Key]=____Class5[____Class5____Key];}}var ____SuperProtoOf____Class5=____Class5===null?null:____Class5.prototype;Link.prototype=Object.create(____SuperProtoOf____Class5);Link.prototype.constructor=Link;Link.__superConstructor__=____Class5;
 	function Link(){"use strict";
 		this.url=this.url.bind(this)
 		this.onset=this.onset.bind(this)

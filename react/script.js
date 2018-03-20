@@ -3,7 +3,20 @@ var ReactDOM= require("react-dom")
 var realtime=io.connect("localhost")
 class Header extends React.Component{
 	render(){
-		return <div id="header">Entertain Meh</div>
+		return <div id="header"><h1>Entertain Meh</h1> <Nav/></div>
+	}
+}
+
+class Nav extends React.Component{
+	render(){
+		return <nav>
+			<ul>
+			<li><a href="">Home</a></li>
+			<li><a href="link">Add a link</a></li>
+			<li><a href="">Register</a></li>
+			<li><a href="">Login</a></li>
+			</ul>
+		</nav>
 	}
 }
 
@@ -94,18 +107,6 @@ class List extends React.Component{
 		</div>;
 	}
 }
-class Nav extends React.Component{
-	render(){
-		return <nav>
-			<ul>
-			<li><a href="">Home</a></li>
-			<li><a href="link">Add a link</a></li>
-			<li><a href="">Register</a></li>
-			<li><a href="">Login</a></li>
-			</ul>
-		</nav>
-	}
-}
 function Item(props){
 	return <tr>
 		<td> <a href={"/series/"+props.series}>{props.series}</a></td>
@@ -128,4 +129,4 @@ function LoadList(){
 	</div>
 }
 
-ReactDOM.render([<Header/>,<main><LoadList/><Nav/></main>],document.getElementById("container"))
+ReactDOM.render([<Header/>,<main><LoadList/></main>],document.getElementById("container"))

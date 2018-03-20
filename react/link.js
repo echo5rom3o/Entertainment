@@ -1,9 +1,22 @@
 var React=require("react")
 var ReactDOM= require("react-dom")
 
+class Nav extends React.Component{
+	render(){
+		return <nav style={{"margin":"0 0 0 30%"}}>
+			<ul>
+			<li><a href="">Home</a></li>
+			<li><a href="link">Add a link</a></li>
+			<li><a href="">Register</a></li>
+			<li><a href="">Login</a></li>
+			</ul>
+		</nav>
+	}
+}
+
 class Header extends React.Component{
 	render(){
-		return <div id="header">Entertain Meh</div>
+		return <div id="header">Entertain Meh<Nav/></div>
 	}
 }
 

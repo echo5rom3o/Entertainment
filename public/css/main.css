@@ -4,13 +4,13 @@ body{
 #header{
 	padding:10px;
 	font-size:30px;
-	background:#3d9ea2;
+	background:#98c723;
 	color:white;
 	font-family:"Agency FB";
 	margin:0 0 10px 0;
 }
 .filters:hover{
-	background:#68b6b9;
+	background:#89af2b;
 }
 main{
 	margin:auto;
@@ -19,7 +19,7 @@ main{
 }
 main .list{
 	width:80%;
-	float:left;
+	margin:auto;
 }
 main h3{
 	margin:0;
@@ -33,24 +33,39 @@ main .filter{
 	border-radius:5px;
 	outline:none;
 }
+h1{
+	display:inline-block;
+	margin:0 0 0 15%;
+}
 nav{
-	float:left;
+	margin:0 0 0 10%;
 }
 nav a{
+	font-size:18px;
 	text-decoration:none;
+	color:white;
+}
+nav a:visited{
+	color:white;
+}
+nav ul{
+	margin:0;
 }
 nav li{
+	display:inline-block;
+	
 	list-style-type:none;
+	padding:0 10px;
 }
 table{
 	width:100%;
-	color:#8a8ac7;
+	color:#3aa940;
 	border-collapse:collapse;
 }
 table th{
 	color:white;
 	text-align:left;	
-	background:#3d9ea2;
+	background:#a5d249;
 	width:33%;
 	font-weight:normal;
 }
@@ -61,27 +76,26 @@ table tr{
 	font-size:15px;
 }
 table tr:nth-child(even){
-	background:#e4f9f5a6;
+	background:#63ca5d3b;
 }
 table tr:nth-child(odd){
-	background:#93bbb33b;
+	background:#a6de683b;
 }
 a,a:visited{
 	text-decoration:none;
-	color:#8a8ac7;
+	color:#3aa940;
 }
 a:hover{
 	text-decoration:none;
-	color:#3d3da0;
+	color:#358c3a;
 }
 nav{
 	display:inline-block;
-	font-size:15px;
 }
 .list button{
 	color:white;
 	width: 100%;
-    background: #53b1b5;
+    background: #98c723;
 	font-size:15px;
 	padding:3px;
 	box-sizing:border-box;

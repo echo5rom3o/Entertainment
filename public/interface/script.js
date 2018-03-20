@@ -18062,13 +18062,26 @@ var ReactDOM= require("react-dom")
 var realtime=io.connect("localhost")
 var ____Class0=React.Component;for(var ____Class0____Key in ____Class0){if(____Class0.hasOwnProperty(____Class0____Key)){Header[____Class0____Key]=____Class0[____Class0____Key];}}var ____SuperProtoOf____Class0=____Class0===null?null:____Class0.prototype;Header.prototype=Object.create(____SuperProtoOf____Class0);Header.prototype.constructor=Header;Header.__superConstructor__=____Class0;function Header(){"use strict";if(____Class0!==null){____Class0.apply(this,arguments);}}
 	Object.defineProperty(Header.prototype,"render",{writable:true,configurable:true,value:function(){"use strict";
-		return React.createElement("div", {id: "header"}, "Entertain Meh")
+		return React.createElement("div", {id: "header"}, React.createElement("h1", null, "Entertain Meh"), " ", React.createElement(Nav, null))
 	}});
 
 
-var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____Class1.hasOwnProperty(____Class1____Key)){List[____Class1____Key]=____Class1[____Class1____Key];}}var ____SuperProtoOf____Class1=____Class1===null?null:____Class1.prototype;List.prototype=Object.create(____SuperProtoOf____Class1);List.prototype.constructor=List;List.__superConstructor__=____Class1;
+var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____Class1.hasOwnProperty(____Class1____Key)){Nav[____Class1____Key]=____Class1[____Class1____Key];}}var ____SuperProtoOf____Class1=____Class1===null?null:____Class1.prototype;Nav.prototype=Object.create(____SuperProtoOf____Class1);Nav.prototype.constructor=Nav;Nav.__superConstructor__=____Class1;function Nav(){"use strict";if(____Class1!==null){____Class1.apply(this,arguments);}}
+	Object.defineProperty(Nav.prototype,"render",{writable:true,configurable:true,value:function(){"use strict";
+		return React.createElement("nav", null, 
+			React.createElement("ul", null, 
+			React.createElement("li", null, React.createElement("a", {href: ""}, "Home")), 
+			React.createElement("li", null, React.createElement("a", {href: "link"}, "Add a link")), 
+			React.createElement("li", null, React.createElement("a", {href: ""}, "Register")), 
+			React.createElement("li", null, React.createElement("a", {href: ""}, "Login"))
+			)
+		)
+	}});
+
+
+var ____Class2=React.Component;for(var ____Class2____Key in ____Class2){if(____Class2.hasOwnProperty(____Class2____Key)){List[____Class2____Key]=____Class2[____Class2____Key];}}var ____SuperProtoOf____Class2=____Class2===null?null:____Class2.prototype;List.prototype=Object.create(____SuperProtoOf____Class2);List.prototype.constructor=List;List.__superConstructor__=____Class2;
 	function List(props){"use strict";
-		____Class1.call(this,props);
+		____Class2.call(this,props);
 		this.state={category:props.category,filters:{},list:props.list};
 		this.load=this.load.bind(this)
 		this.filter=this.filter.bind(this)
@@ -18153,18 +18166,6 @@ var ____Class1=React.Component;for(var ____Class1____Key in ____Class1){if(____C
 		);
 	}});
 
-var ____Class2=React.Component;for(var ____Class2____Key in ____Class2){if(____Class2.hasOwnProperty(____Class2____Key)){Nav[____Class2____Key]=____Class2[____Class2____Key];}}var ____SuperProtoOf____Class2=____Class2===null?null:____Class2.prototype;Nav.prototype=Object.create(____SuperProtoOf____Class2);Nav.prototype.constructor=Nav;Nav.__superConstructor__=____Class2;function Nav(){"use strict";if(____Class2!==null){____Class2.apply(this,arguments);}}
-	Object.defineProperty(Nav.prototype,"render",{writable:true,configurable:true,value:function(){"use strict";
-		return React.createElement("nav", null, 
-			React.createElement("ul", null, 
-			React.createElement("li", null, React.createElement("a", {href: ""}, "Home")), 
-			React.createElement("li", null, React.createElement("a", {href: "link"}, "Add a link")), 
-			React.createElement("li", null, React.createElement("a", {href: ""}, "Register")), 
-			React.createElement("li", null, React.createElement("a", {href: ""}, "Login"))
-			)
-		)
-	}});
-
 function Item(props){
 	return React.createElement("tr", null, 
 		React.createElement("td", null, " ", React.createElement("a", {href: "/series/"+props.series}, props.series)), 
@@ -18187,6 +18188,6 @@ function LoadList(){
 	)
 }
 
-ReactDOM.render([React.createElement(Header, null),React.createElement("main", null, React.createElement(LoadList, null), React.createElement(Nav, null))],document.getElementById("container"))
+ReactDOM.render([React.createElement(Header, null),React.createElement("main", null, React.createElement(LoadList, null))],document.getElementById("container"))
 
 },{"react":26,"react-dom":23}]},{},[27]);

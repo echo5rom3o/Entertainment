@@ -1,3 +1,4 @@
+process.env.NODE_ENV = 'production';
 var express=require("express");
 var session=require("express-session")
 var bodyParser=require("body-parser")
@@ -77,6 +78,7 @@ connect.then((db)=>{
 					if(data){
 						res.render("index",{script:"link",data:{link:"Unable to add. Url may have malicious content. Scanned with Google Safe."}});
 					}
+					
 					else{
 						db.collection("links").insertOne({serie:serie,category:type,site:site,release:release||"1",group:group,popular:0});
 						res.render("index",{script:"link",data:{link:"success"}});
@@ -100,7 +102,13 @@ connect.then((db)=>{
 			})
 		}
 	})
-	
+	function mongoSafe(object,regex){
+		var mongo={}
+		Object.keys(object).forEach((key)=>{
+			mongo[noSpecial(key,regex||/(?![.$])./)]=noSpecial(object[key],regex||/(?![.$])./)
+		})
+		return mongo;
+	}
 	function getLinks(opt){
 		opt=opt||{}
 		return new Promise((resolve)=>{db.collection("links").find(opt.category||{}).sort(opt.order||{_id:-1}).limit(opt.limit||30).toArray().then((list)=>{
@@ -112,10 +120,18 @@ connect.then((db)=>{
 	
 	io.on("connect",(socket)=>{
 		socket.on("filter",(options,callback)=>{
-			getLinks(options).then(callback)
+			try{
+				options.category=mongoSafe(option.category)
+				options.order=mongoSafe(option.order)
+				options.start=parseInt(option.start)
+				options.limit=parseInt(option.limit)
+				getLinks(options).then(callback)
+			}
+			catch(e){
+				console.log(e)
+			}
 		})
 	})
 })
-
 
 server.listen(80)
